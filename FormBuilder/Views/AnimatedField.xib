@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimatedField" customModule="FormBuilder" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="TEV-td-6V1" id="kWW-2I-7xm"/>
+                <outlet property="textField" destination="74o-Ex-h1F" id="SnK-LS-MOq"/>
+                <outlet property="view" destination="iN0-l3-epB" id="zoa-Ru-0fD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-td-6V1">
+                    <rect key="frame" x="0.0" y="10" width="42" height="24"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74o-Ex-h1F" customClass="NextResponderTextField" customModule="NextResponderTextField">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="74o-Ex-h1F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1IB-Mv-wlI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="74o-Ex-h1F" secondAttribute="trailing" id="61A-rI-5ne"/>
+                <constraint firstItem="74o-Ex-h1F" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EFW-7A-ig1"/>
+                <constraint firstItem="74o-Ex-h1F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Srg-8M-DF4"/>
+                <constraint firstItem="TEV-td-6V1" firstAttribute="leading" secondItem="74o-Ex-h1F" secondAttribute="leading" id="TqJ-tq-T7x"/>
+                <constraint firstItem="TEV-td-6V1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="o1J-Dv-L4D"/>
+                <constraint firstAttribute="bottom" secondItem="74o-Ex-h1F" secondAttribute="bottom" id="tEK-xc-VGi"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-131.91964285714286"/>
+        </view>
+    </objects>
+</document>

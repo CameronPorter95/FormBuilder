@@ -1,0 +1,60 @@
+PODS:
+  - Alamofire (4.8.2)
+  - BrightFutures (7.0.1):
+    - Result (~> 4.1)
+  - Cache (4.2.0)
+  - IQKeyboardManagerSwift (6.2.0)
+  - KeychainAccess (3.2.0)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - NextResponderTextField (3.1.0)
+  - Result (4.1.0)
+
+DEPENDENCIES:
+  - BrightFutures
+  - Cache (from `https://github.com/CameronPorter95/Cache.git`, branch `version_4.2.0_swift_5.0`)
+  - IQKeyboardManagerSwift (from `https://github.com/CameronPorter95/IQKeyboardManager.git`)
+  - KeychainAccess
+  - Moya (~> 12.0.1)
+  - NextResponderTextField
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - BrightFutures
+    - KeychainAccess
+    - Moya
+    - NextResponderTextField
+    - Result
+
+EXTERNAL SOURCES:
+  Cache:
+    :branch: version_4.2.0_swift_5.0
+    :git: https://github.com/CameronPorter95/Cache.git
+  IQKeyboardManagerSwift:
+    :git: https://github.com/CameronPorter95/IQKeyboardManager.git
+
+CHECKOUT OPTIONS:
+  Cache:
+    :commit: d8904bc49518b56876af47c1d003129e2f3baba9
+    :git: https://github.com/CameronPorter95/Cache.git
+  IQKeyboardManagerSwift:
+    :commit: b536543c4f066d5aa1ce23a60965311fb73a3d7e
+    :git: https://github.com/CameronPorter95/IQKeyboardManager.git
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  BrightFutures: 982d41952f770d6a9d8335f5f1d8b9c81a6ff430
+  Cache: f28f8dd64b632155aabf9b3906b036a659048251
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  NextResponderTextField: 015b441b1dec243dc281bdb6a1711dcdc03cef85
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+
+PODFILE CHECKSUM: de8801f3c9622d0a7df6788168fc014b1e83f15d
+
+COCOAPODS: 1.7.0.beta.3
