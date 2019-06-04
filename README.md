@@ -25,7 +25,7 @@ in Swift. Stub server dependencies are managed with
 
 To setup the stub server:
 1. download "hschmidt/EnvPane" from: https://github.com/hschmidt/EnvPane/releases/tag/releases%2F0.6
-2. add the environment variable key: PROJECT_DIR with value of the stubserver directory E.G. Documents/projects/app/ios/StubServer
+2. add the environment variable key: SERVER_DIR with value of the stubserver directory E.G. Documents/projects/app/ios/StubServer
 3. install vapor by running 'brew install vapor/tap/vapor'
 4. go to StubServer folder and run 'vapor xcode'
 5. open the xcode "OrbitRemit" workspace
@@ -35,7 +35,7 @@ To setup the stub server:
   Migrations complete
   Server starting on http://localhost:8080"
   in the console.
-  go to: http://localhost:8080/messages.json and check that you're getting json response from the stub server to verify that it is working
+  go to: http://localhost:8080/forms.json and check that you're getting json response from the stub server to verify that it is working
 8. run the "OrbitRemitStubs" scheme on your iPhone of choice.
 9. success!
 

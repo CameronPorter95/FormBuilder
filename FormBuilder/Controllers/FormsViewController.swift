@@ -9,6 +9,12 @@
 import UIKit
 
 class FormsViewController: ProviderController {
+  
+  var jsonSchema: JSONSchema<SchemaRoot>? {
+    didSet {
+      print("FormRefreshed")
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +27,35 @@ class FormsViewController: ProviderController {
     }
     .onFailure { error in
       print(error.response?.description ?? "Couldn't fetch a codable!")
+    }
+    
+    getJSON { json in
+      self.jsonSchema = JSONSchema(json: json)
+    }
+  }
+  
+  func getJSON(completion: @escaping (JSON) -> ()) {
+  backendProvider?.future(.getForms())
+    .onSuccess { response in
+      do {
+        let result = try JSONSerialization.jsonObject(with: response.data, options: []) //Wrap this in a backendProvider function that throws an error
+        guard let json = result as? JSON,
+        let data = json["data"] as? JSON else {
+            return
+        }
+        completion(data)
+      } catch {
+        print("failed to map to json dictionary")
+      }
+    }
+    .onFailure { error in
+      print(error.localizedDescription)
+    }
+  }
+  
+  @IBAction func refreshFormPressed(_ sender: Any) {
+    getJSON { json in
+      self.jsonSchema = JSONSchema(json: json)
     }
   }
 }

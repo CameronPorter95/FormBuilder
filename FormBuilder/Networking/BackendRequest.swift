@@ -17,7 +17,7 @@ enum BackendPath: CustomStringConvertible {
   var description: String {
     switch self {
     case .forms:
-      return "forms"
+      return "forms.json"
     case .codable:
       return "codable.json"
     }
