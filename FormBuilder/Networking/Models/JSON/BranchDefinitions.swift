@@ -70,7 +70,7 @@ extension SchemaBranchDefinition {
     
     if filtered.count < json.count {
       let difference = Set(json.keys).subtracting(Set(filtered))
-      print("There is an incompatibility with this json type: \(String(describing: self)) on these keys: \(difference)") //TODO throw an error here and log to crashlytics
+      print("There is an incompatibility on: \(String(describing: self)) on these keys: \(difference)") //TODO throw an error here and log to crashlytics
     }
   }
 }

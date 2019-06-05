@@ -34,6 +34,7 @@
 		B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */; };
 		B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */; };
 		B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4810522A73479003110B8 /* SchemaBranch.swift */; };
+		B3D4832A22A77085003110B8 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4832922A77085003110B8 /* Styles.swift */; };
 		FC90A7AC00E8711FF78372F4 /* libPods-FormBuilderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E60E52A4925EC023A476951B /* libPods-FormBuilderTests.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDefinitions.swift; sourceTree = "<group>"; };
 		B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
 		B3D4810522A73479003110B8 /* SchemaBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaBranch.swift; sourceTree = "<group>"; };
+		B3D4832922A77085003110B8 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D0577A2D69916E610017F756 /* Pods_FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3894A4FCCBC848728BE6F0 /* Pods-FormBuilderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilderTests.debug.xcconfig"; path = "Target Support Files/Pods-FormBuilderTests/Pods-FormBuilderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E60E52A4925EC023A476951B /* libPods-FormBuilderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormBuilderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 			children = (
 				B324BBDB229F88AA004B209A /* FormBuilder.swift */,
 				B33BC51C22A5DD6C0018DAA3 /* PropertyIterable.swift */,
+				B3D4832922A77085003110B8 /* Styles.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */,
 				B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */,
 				B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */,
+				B3D4832A22A77085003110B8 /* Styles.swift in Sources */,
 				B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */,
 				B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */,
 				B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */,

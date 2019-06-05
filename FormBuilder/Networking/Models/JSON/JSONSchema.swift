@@ -35,9 +35,9 @@ extension JSON {
         case SchemaBranchType.object?:
           properties[name] = SchemaProperty.init(json: json)
         case SchemaBranchType.string?:
-          properties[name] = SchemaProperty.init(json: json) //TODO create SchemaArrayProperty class
-        case SchemaBranchType.array?:
           properties[name] = SchemaProperty.init(json: json)
+        case SchemaBranchType.array?:
+          properties[name] = SchemaProperty.init(json: json) //TODO create SchemaArrayProperty class
         case SchemaBranchType.remote?:
           properties[name] = SchemaProperty.init(json: json)
         case .none:

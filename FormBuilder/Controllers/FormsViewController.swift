@@ -12,26 +12,26 @@ class FormsViewController: ProviderController {
   
   @IBOutlet weak var stackView: UIStackView!
   
+  private var generatedTextFields = [AnimatedField]()
+  
   var jsonSchema: JSONSchema<SchemaRoot>? {
     didSet {
+      guard let properties = jsonSchema?.root.properties else { return }
+      for view in stackView.arrangedSubviews {
+        stackView.removeArrangedSubview(view)
+        view.removeFromSuperview()
+      }
+      
+      for property in properties.values where property is SchemaProperty {
+        setupField(property as! SchemaProperty)
+      }
       print("FormRefreshed")
-      //stackView.addArrangedSubview()
     }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     backendProvider = BackendProvider()
-    
-    backendProvider!.futureObject(.getCodableModel())
-    .onSuccess { (codable: CodableModel) in
-      guard let name = codable.name else { return }
-      print("Got a codable example with name \(name)")
-    }
-    .onFailure { error in
-      print(error.response?.description ?? "Couldn't fetch a codable!")
-    }
-    
     getJSON { json in
       self.jsonSchema = JSONSchema(json: json)
     }
@@ -56,12 +56,35 @@ class FormsViewController: ProviderController {
     }
   }
   
-  func setupField(schemaBranch) {
+  func setupField(_ property: SchemaProperty) {
+    let v = UIView()
+    v.translatesAutoresizingMaskIntoConstraints = false
     let f = AnimatedField()
+    f.translatesAutoresizingMaskIntoConstraints = false
+    f.showBottomLine = true
+    f.setupStyle()
+    f.labelText = property.title?.uppercased()
+    v.addSubview(f)
+    
+    f.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    f.bottomAnchor.constraint(equalTo: v.bottomAnchor).isActive = true
+    
+    let m = v.layoutMarginsGuide
+    f.leadingAnchor.constraint(equalTo: m.leadingAnchor,
+                               constant: 20).isActive = true
+    f.trailingAnchor.constraint(equalTo: m.trailingAnchor,
+                                constant: -20).isActive = true
+    
+    stackView.addArrangedSubview(v)
+    
+    v.heightAnchor.constraint(equalToConstant: 70).isActive = true
+    
+    generatedTextFields.append(f)
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {
     getJSON { json in
+      self.generatedTextFields.removeAll()
       self.jsonSchema = JSONSchema(json: json)
     }
   }

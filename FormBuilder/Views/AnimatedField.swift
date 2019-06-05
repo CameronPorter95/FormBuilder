@@ -33,6 +33,21 @@ final class AnimatedField: UIView, NibType {
     }
   }
   
+  @IBInspectable var labelText: String? {
+    get {
+      return label.text
+    }
+    set {
+      label.text = newValue
+    }
+  }
+  
+  @IBInspectable var labelColor: UIColor = .black {
+    didSet {
+      label.textColor = labelColor
+    }
+  }
+  
   @IBInspectable var showBottomLine: Bool = false {
     didSet {
       line.translatesAutoresizingMaskIntoConstraints = false
