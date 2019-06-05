@@ -10,9 +10,12 @@ import UIKit
 
 class FormsViewController: ProviderController {
   
+  @IBOutlet weak var stackView: UIStackView!
+  
   var jsonSchema: JSONSchema<SchemaRoot>? {
     didSet {
       print("FormRefreshed")
+      //stackView.addArrangedSubview()
     }
   }
 
@@ -35,7 +38,7 @@ class FormsViewController: ProviderController {
   }
   
   func getJSON(completion: @escaping (JSON) -> ()) {
-  backendProvider?.future(.getForms())
+  backendProvider?.future(.getFormsTwo())
     .onSuccess { response in
       do {
         let result = try JSONSerialization.jsonObject(with: response.data, options: []) //Wrap this in a backendProvider function that throws an error
@@ -51,6 +54,10 @@ class FormsViewController: ProviderController {
     .onFailure { error in
       print(error.localizedDescription)
     }
+  }
+  
+  func setupField(schemaBranch) {
+    let f = AnimatedField()
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {

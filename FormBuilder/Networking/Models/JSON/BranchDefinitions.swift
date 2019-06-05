@@ -14,7 +14,9 @@ protocol SchemaBranchDefinition {
   ///Describes what this branch of the schema is
   var description: String? { get }
   ///The data type of this branch of the json
-  var type: String? { get }
+  var type: SchemaBranchType? { get }
+  ///The name of this branch
+  var title: String? { get }
   ///The fields contained in this branch of the schema
   var properties: [String:SchemaPropertyDefinition]? { get }
   ///An array of properties required by the data using this schema
@@ -29,8 +31,6 @@ protocol SchemaRootDefinition: SchemaBranchDefinition {
 }
 
 protocol SchemaPropertyDefinition: SchemaBranchDefinition {
-  ///The name of this property
-  var title: String? { get }
   ///The maximum value of this property
   var maximum: Int? { get }
   ///The minimum value of this property
@@ -53,4 +53,24 @@ protocol ArrayPropertyDefinition: SchemaPropertyDefinition {
   override var maximum: Int? { get }
   ///The minimum length of the array
   override var minimum: Int? { get }
+}
+
+enum SchemaBranchType: String {
+  case object
+  case string
+  case array
+  case remote
+}
+
+extension SchemaBranchDefinition {
+  func checkCompatibility(json: JSON, properties: [String]) {
+    let filtered = json.keys.filter({
+      return properties.contains($0)
+    })
+    
+    if filtered.count < json.count {
+      let difference = Set(json.keys).subtracting(Set(filtered))
+      print("There is an incompatibility with this json type: \(String(describing: self)) on these keys: \(difference)") //TODO throw an error here and log to crashlytics
+    }
+  }
 }

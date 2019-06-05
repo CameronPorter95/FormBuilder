@@ -1,5 +1,5 @@
 //
-//  Fee.swift
+//  CodableModel.swift
 //  FormBuilder
 //
 //  Created by OrbitRemit LAP048 on 30/05/19.

@@ -33,6 +33,7 @@
 		B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD5229F9CD4006F2B4B /* CodableModel.swift */; };
 		B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */; };
 		B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */; };
+		B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4810522A73479003110B8 /* SchemaBranch.swift */; };
 		FC90A7AC00E8711FF78372F4 /* libPods-FormBuilderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E60E52A4925EC023A476951B /* libPods-FormBuilderTests.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		B364ABD5229F9CD4006F2B4B /* CodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
 		B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDefinitions.swift; sourceTree = "<group>"; };
 		B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
+		B3D4810522A73479003110B8 /* SchemaBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaBranch.swift; sourceTree = "<group>"; };
 		D0577A2D69916E610017F756 /* Pods_FormBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3894A4FCCBC848728BE6F0 /* Pods-FormBuilderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilderTests.debug.xcconfig"; path = "Target Support Files/Pods-FormBuilderTests/Pods-FormBuilderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E60E52A4925EC023A476951B /* libPods-FormBuilderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FormBuilderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,9 +290,10 @@
 			isa = PBXGroup;
 			children = (
 				B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */,
+				B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */,
+				B3D4810522A73479003110B8 /* SchemaBranch.swift */,
 				B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */,
 				B33BC2F822A5D28C0018DAA3 /* SchemaProperty.swift */,
-				B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */,
 				B364ABC6229F8B25006F2B4B /* FormDefinition.swift */,
 			);
 			path = JSON;
@@ -533,6 +536,7 @@
 				B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */,
 				B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */,
 				B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */,
+				B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */,
 				B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */,
 				B35FD48D229F73F300631844 /* NibType.swift in Sources */,
 				B364ABC7229F8B25006F2B4B /* FormDefinition.swift in Sources */,
