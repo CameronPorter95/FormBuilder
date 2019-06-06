@@ -8,13 +8,11 @@
 
 import Foundation
 
-protocol PropertyIterable
-{
+protocol PropertyIterable {
   var allProperties: [String] { get }
 }
 
-extension PropertyIterable
-{
+extension PropertyIterable {
   var allProperties: [String] {
     return Mirror(reflecting: self).children.compactMap({
       $0.label

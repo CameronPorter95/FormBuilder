@@ -37,7 +37,7 @@ protocol SchemaPropertyDefinition: SchemaBranchDefinition {
   var minimum: Int? { get }
 }
 
-protocol RemotePropertyDefinition: SchemaPropertyDefinition {
+protocol SchemaRemotePropertyDefinition: SchemaPropertyDefinition {
   ///A reference to another schema
   var url: String? { get }
   ///A JSONPath expression used to get the value of the schema property at RemoteProperty.url
@@ -46,7 +46,7 @@ protocol RemotePropertyDefinition: SchemaPropertyDefinition {
   var namePath: String? { get }
 }
 
-protocol ArrayPropertyDefinition: SchemaPropertyDefinition {
+protocol SchemaArrayPropertyDefinition: SchemaPropertyDefinition {
   ///The elements in this array property
   var items: [SchemaBranchDefinition]? { get }
   ///The maximum length of the array
@@ -63,9 +63,10 @@ enum SchemaBranchType: String {
 }
 
 extension SchemaBranchDefinition {
-  func checkCompatibility(json: JSON, properties: [String]) {
+  func checkCompatibility(json: JSON, keys: [String]? = nil) {
+    guard let keys = keys else { return }
     let filtered = json.keys.filter({
-      return properties.contains($0)
+      return keys.contains($0)
     })
     
     if filtered.count < json.count {

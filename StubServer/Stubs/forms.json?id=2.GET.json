@@ -8,6 +8,7 @@
     "properties": {
       "comments": {
         "type": "array",
+        "title": "comments",
         "maxItems": 2,
         "items": {
           "type": "object",

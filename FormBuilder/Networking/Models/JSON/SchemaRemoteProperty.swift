@@ -1,34 +1,31 @@
 //
-//  SchemaProperty.swift
+//  SchemaRemoteProperty.swift
 //  FormBuilder
 //
-//  Created by OrbitRemit LAP048 on 4/06/19.
+//  Created by OrbitRemit LAP048 on 6/06/19.
 //  Copyright © 2019 OrbitRemit. All rights reserved.
 //
 
 import Foundation
 
-class SchemaProperty: SchemaBranch, SchemaPropertyDefinition {
-  var maximum: Int?
-  var minimum: Int?
+class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
+  var url: String?
+  var valuePath: String?
+  var namePath: String?
   
   required init(json: JSON) {
-    super.init(json: json, keys: PropertyKey.allCases.map({
+    super.init(json: json, keys: Key.allCases.map({
       $0.rawValue
     }))
-    for property in PropertyKey.allCases {
+    for property in Key.allCases {
       mapJSONToProperty(json: json, key: property)
     }
   }
   
-  override init(json: JSON, keys: [String]) {
-    super.init(json: json, keys: keys)
-    for property in PropertyKey.allCases {
-      mapJSONToProperty(json: json, key: property)
-    }
-  }
-  
-  enum PropertyKey: String, CaseIterable {
+  enum Key: String, CaseIterable {
+    case url = "url"
+    case valuePath = "valuePath"
+    case namePath = "namePath"
     case maximum = "maximum"
     case minimum = "minimum"
     case title = "title"
@@ -38,7 +35,7 @@ class SchemaProperty: SchemaBranch, SchemaPropertyDefinition {
     case required = "required"
   }
   
-  func mapJSONToProperty(json: JSON, key: PropertyKey) {
+  func mapJSONToProperty(json: JSON, key: Key) {
     switch key {
     case .maximum:
       maximum = json[key.rawValue] as? Int

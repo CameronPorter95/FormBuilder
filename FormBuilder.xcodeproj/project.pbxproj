@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0E85653D57F6E21396FAB4CE /* libPods-FormBuilderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4626C04C41DF282078FBBB2 /* libPods-FormBuilderUITests.a */; };
 		87C499005C7DF27C08009EA2 /* Pods_FormBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0577A2D69916E610017F756 /* Pods_FormBuilder.framework */; };
+		B3173D5522A87D750038C4EF /* SchemaRemoteProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3173D5422A87D750038C4EF /* SchemaRemoteProperty.swift */; };
+		B317419B22A8C1440038C4EF /* PickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317419A22A8C1440038C4EF /* PickerDataSource.swift */; };
+		B317419F22A8C2610038C4EF /* AsyncCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317419E22A8C2610038C4EF /* AsyncCollection.swift */; };
+		B31741A122A8D5A80038C4EF /* JSONCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31741A022A8D5A80038C4EF /* JSONCollection.swift */; };
 		B324BBD7229F7DBA004B209A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B324BBD6229F7DB9004B209A /* README.md */; };
 		B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324BBDB229F88AA004B209A /* FormBuilder.swift */; };
 		B33BC2F722A5D2530018DAA3 /* SchemaRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */; };
@@ -61,6 +65,10 @@
 		3BCC01A7E158EF39B936D2B1 /* Pods-FormBuilderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilderUITests.release.xcconfig"; path = "Target Support Files/Pods-FormBuilderUITests/Pods-FormBuilderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		971B9DA3BF68E8C6D53BDB7A /* Pods-FormBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilder.release.xcconfig"; path = "Target Support Files/Pods-FormBuilder/Pods-FormBuilder.release.xcconfig"; sourceTree = "<group>"; };
 		A817D379A7055A061DE05FB6 /* Pods-FormBuilderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormBuilderTests.release.xcconfig"; path = "Target Support Files/Pods-FormBuilderTests/Pods-FormBuilderTests.release.xcconfig"; sourceTree = "<group>"; };
+		B3173D5422A87D750038C4EF /* SchemaRemoteProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaRemoteProperty.swift; sourceTree = "<group>"; };
+		B317419A22A8C1440038C4EF /* PickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDataSource.swift; sourceTree = "<group>"; };
+		B317419E22A8C2610038C4EF /* AsyncCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCollection.swift; sourceTree = "<group>"; };
+		B31741A022A8D5A80038C4EF /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
 		B324BBD6229F7DB9004B209A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B324BBDB229F88AA004B209A /* FormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilder.swift; sourceTree = "<group>"; };
 		B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaRoot.swift; sourceTree = "<group>"; };
@@ -153,6 +161,8 @@
 		B324BBDA229F8875004B209A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B317419E22A8C2610038C4EF /* AsyncCollection.swift */,
+				B317419A22A8C1440038C4EF /* PickerDataSource.swift */,
 				B324BBDB229F88AA004B209A /* FormBuilder.swift */,
 				B33BC51C22A5DD6C0018DAA3 /* PropertyIterable.swift */,
 				B3D4832922A77085003110B8 /* Styles.swift */,
@@ -257,6 +267,7 @@
 		B364ABC5229F89C9006F2B4B /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				B31741A022A8D5A80038C4EF /* JSONCollection.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -297,6 +308,7 @@
 				B3D4810522A73479003110B8 /* SchemaBranch.swift */,
 				B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */,
 				B33BC2F822A5D28C0018DAA3 /* SchemaProperty.swift */,
+				B3173D5422A87D750038C4EF /* SchemaRemoteProperty.swift */,
 				B364ABC6229F8B25006F2B4B /* FormDefinition.swift */,
 			);
 			path = JSON;
@@ -532,17 +544,21 @@
 				B33BC2F722A5D2530018DAA3 /* SchemaRoot.swift in Sources */,
 				B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */,
 				B33BC2F922A5D28C0018DAA3 /* SchemaProperty.swift in Sources */,
+				B3173D5522A87D750038C4EF /* SchemaRemoteProperty.swift in Sources */,
 				B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */,
 				B364ABCB229F8C25006F2B4B /* MoyaHelper.swift in Sources */,
 				B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */,
 				B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */,
+				B317419B22A8C1440038C4EF /* PickerDataSource.swift in Sources */,
 				B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */,
+				B317419F22A8C2610038C4EF /* AsyncCollection.swift in Sources */,
 				B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */,
 				B3D4832A22A77085003110B8 /* Styles.swift in Sources */,
 				B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */,
 				B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */,
 				B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */,
 				B35FD48D229F73F300631844 /* NibType.swift in Sources */,
+				B31741A122A8D5A80038C4EF /* JSONCollection.swift in Sources */,
 				B364ABC7229F8B25006F2B4B /* FormDefinition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

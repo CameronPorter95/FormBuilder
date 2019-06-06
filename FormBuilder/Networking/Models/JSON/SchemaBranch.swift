@@ -16,24 +16,20 @@ class SchemaBranch: SchemaBranchDefinition {
   var required: [String]?
   
   required init(json: JSON) {
-    for property in BasePropertyKey.allCases {
+    for property in BaseKey.allCases {
       mapJSONToProperty(json: json, key: property)
     }
   }
   
-  init(json: JSON, check: Bool = true) {
-    for property in BasePropertyKey.allCases {
+  init(json: JSON, keys: [String]) {
+    for property in BaseKey.allCases {
       mapJSONToProperty(json: json, key: property)
     }
     
-    if check {
-      checkCompatibility(json: json, properties: BasePropertyKey.allCases.map({
-        $0.rawValue
-      }))
-    }
+    checkCompatibility(json: json, keys: keys)
   }
   
-  enum BasePropertyKey: String, CaseIterable {
+  enum BaseKey: String, CaseIterable {
     case description = "description"
     case type = "type"
     case title = "title"
@@ -41,7 +37,7 @@ class SchemaBranch: SchemaBranchDefinition {
     case required = "required"
   }
   
-  func mapJSONToProperty(json: JSON, key: BasePropertyKey?) {
+  func mapJSONToProperty(json: JSON, key: BaseKey?) {
     guard let key = key else { return }
     switch key {
     case .description:

@@ -13,22 +13,25 @@ class SchemaRoot: SchemaBranch, SchemaRootDefinition {
   var id: String?
   
   required init(json: JSON) {
-    super.init(json: json, check: true)
-    for property in PropertyKey.allCases {
+    super.init(json: json, keys: RootKey.allCases.map({
+      $0.rawValue
+    }))
+    for property in RootKey.allCases {
       mapJSONToProperty(json: json, key: property)
     }
   }
   
-  enum PropertyKey: String, CaseIterable {
+  enum RootKey: String, CaseIterable {
     case schema = "schema"
     case id = "id"
     case description = "description"
     case type = "type"
+    case title = "title"
     case properties = "properties"
     case required = "required"
   }
   
-  func mapJSONToProperty(json: JSON, key: PropertyKey) {
+  func mapJSONToProperty(json: JSON, key: RootKey) {
     switch key {
     case .schema:
       schema = json[key.rawValue] as? String

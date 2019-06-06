@@ -11,19 +11,19 @@ import UIKit
 class FormsViewController: ProviderController {
   
   @IBOutlet weak var stackView: UIStackView!
+  @IBOutlet weak var formIDTextField: UITextField!
   
   private var generatedTextFields = [AnimatedField]()
   
   var jsonSchema: JSONSchema<SchemaRoot>? {
     didSet {
-      guard let properties = jsonSchema?.root.properties else { return }
+      guard let schema = jsonSchema else { return }
       for view in stackView.arrangedSubviews {
         stackView.removeArrangedSubview(view)
         view.removeFromSuperview()
       }
-      
-      for property in properties.values where property is SchemaProperty {
-        setupField(property as! SchemaProperty)
+      for view in FormBuilder().generateForm(from: schema)?.arrangedSubviews ?? [] {
+        stackView.addArrangedSubview(view)
       }
       print("FormRefreshed")
     }
@@ -32,54 +32,19 @@ class FormsViewController: ProviderController {
   override func viewDidLoad() {
     super.viewDidLoad()
     backendProvider = BackendProvider()
-    getJSON { json in
-      self.jsonSchema = JSONSchema(json: json)
-    }
+    getJSON()
   }
   
-  func getJSON(completion: @escaping (JSON) -> ()) {
-  backendProvider?.future(.getFormsTwo())
-    .onSuccess { response in
-      do {
-        let result = try JSONSerialization.jsonObject(with: response.data, options: []) //Wrap this in a backendProvider function that throws an error
-        guard let json = result as? JSON,
-        let data = json["data"] as? JSON else {
-            return
-        }
-        completion(data)
-      } catch {
-        print("failed to map to json dictionary")
-      }
+  func getJSON(completion: ((JSON) -> ())? = nil) {
+    let id = formIDTextField.text != nil ? Int(formIDTextField.text!) != nil ? Int(formIDTextField.text!) : 1 : 1
+    let jsonCollection = JSONCollection {
+      (self.backendProvider?.future(.getForms(id: id!)))! //TODO Fix force unwrap
     }
-    .onFailure { error in
-      print(error.localizedDescription)
+    jsonCollection.refresh()? //TODO move this to a jsonprovider class with delegate calls to onsuceed/onbegin etc
+    .onSuccess { json in
+      self.jsonSchema = JSONSchema(json: jsonCollection.json)
+      completion?(jsonCollection.json)
     }
-  }
-  
-  func setupField(_ property: SchemaProperty) {
-    let v = UIView()
-    v.translatesAutoresizingMaskIntoConstraints = false
-    let f = AnimatedField()
-    f.translatesAutoresizingMaskIntoConstraints = false
-    f.showBottomLine = true
-    f.setupStyle()
-    f.labelText = property.title?.uppercased()
-    v.addSubview(f)
-    
-    f.heightAnchor.constraint(equalToConstant: 60).isActive = true
-    f.bottomAnchor.constraint(equalTo: v.bottomAnchor).isActive = true
-    
-    let m = v.layoutMarginsGuide
-    f.leadingAnchor.constraint(equalTo: m.leadingAnchor,
-                               constant: 20).isActive = true
-    f.trailingAnchor.constraint(equalTo: m.trailingAnchor,
-                                constant: -20).isActive = true
-    
-    stackView.addArrangedSubview(v)
-    
-    v.heightAnchor.constraint(equalToConstant: 70).isActive = true
-    
-    generatedTextFields.append(f)
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {

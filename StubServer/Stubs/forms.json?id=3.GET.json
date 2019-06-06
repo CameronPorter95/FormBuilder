@@ -1,0 +1,61 @@
+{
+  "data": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "email": {
+        "title": "Email",
+        "type": "string",
+        "pattern": "^\\S+@\\S+$",
+        "description": "Email will be used for evil."
+      },
+      "comment": {
+        "title": "Comment",
+        "type": "string",
+        "maxLength": 20,
+        "validationMessage": "Don't be greedy!"
+      },
+      "street number": {
+        "title": "street number",
+        "type": "string"
+      },
+       "street name": {
+         "title": "street name",
+         "type": "string"
+       },
+      "suburb": {
+        "title": "suburb",
+        "type": "string"
+      },
+      "city": {
+        "title": "city",
+        "type": "string"
+      },
+      "bank": {
+        "title": "bank",
+        "type": "string"
+      },
+      "branch": {
+        "title": "branch",
+        "type": "string"
+      },
+      "company": {
+        "title": "company",
+        "type": "string"
+      },
+      "nickname": {
+        "title": "nickname",
+        "type": "string"
+      },
+      "postcode": {
+        "title": "postcode",
+        "type": "string"
+      }
+    },
+    "required": ["name", "email", "comment"]
+  }
+}

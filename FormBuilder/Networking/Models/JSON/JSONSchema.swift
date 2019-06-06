@@ -19,7 +19,6 @@ class JSONSchema<T: SchemaBranchDefinition> {
   init(json: JSON) {
     self.json = json
     self.root = T.init(json: json)
-    print((root as! SchemaRoot).properties!)
   }
 }
 
@@ -30,7 +29,7 @@ extension JSON {
       var properties: [String: SchemaProperty] = [:]
       for (name, value) in self {
         guard let json = value as? JSON else { return nil }
-        let branch = SchemaBranch.init(json: json, check: false)
+        let branch = SchemaBranch.init(json: json)
         switch branch.type {
         case SchemaBranchType.object?:
           properties[name] = SchemaProperty.init(json: json)
@@ -39,9 +38,10 @@ extension JSON {
         case SchemaBranchType.array?:
           properties[name] = SchemaProperty.init(json: json) //TODO create SchemaArrayProperty class
         case SchemaBranchType.remote?:
-          properties[name] = SchemaProperty.init(json: json)
+          properties[name] = SchemaRemoteProperty.init(json: json)
         case .none:
-          ()
+          properties[name] = SchemaProperty.init(json: json)
+          print("Couldn't find a schema branch of type \(json["type"] ?? "" as AnyObject), defaulting to base property")
         } //TODO if passing as a subset of SchemaProperty, fail if not all values are able to pass as that subset
       }
       return properties as? [String : T]

@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {
+      "branch_id": {
+        "title": "Height",
+        "type": "remote",
+        "url": "http://localhost:8080/references/banks.json",
+        "valuePath": "$.data[*].id",
+        "namePath": "$.data[*].attributes.name"
+      }
+    },
+    "required": [
+      "name",
+      "height"
+    ]
+  }
+}
