@@ -20,18 +20,21 @@ class JSONCollection: RefreshObservable {
     self.futureGenerator = futureGenerator
   }
   
-  @discardableResult func refresh() -> MoyaFuture<JSON>? {
+  @discardableResult func refresh() -> MoyaFuture<JSON> {
     isLoading = true
     return futureGenerator()
       .map { (r: Response) in
         do {
           let result = try JSONSerialization.jsonObject(with: r.data, options: [])
-          guard let json = result as? JSON,
-          let data = json["data"] as? JSON else {
+          guard let json = result as? JSON else {
             print("failed to map to json dictionary")
             return [:]
           }
-          self.set(sequence: data)
+          if let data = json["data"] as? JSON {
+            self.set(sequence: data)
+          } else if let data = json["data"] as? [JSON] {
+            //self.set(sequence: data)
+          }
         } catch {
           print("failed to map to json dictionary")
         }

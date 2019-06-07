@@ -11,6 +11,10 @@ import Moya
 import Result
 
 final class BackendProvider: MoyaProvider<BackendRequest> {
+  lazy var jsonProvider: JSONProvider = {
+    return JSONProvider(provider: self)
+  }()
+  
   ///Make an HTTP request to get json in a codable format
   func futureObject<T: Codable>(_ target: BackendRequest) -> MoyaFuture<T> {
     let f = future(target)

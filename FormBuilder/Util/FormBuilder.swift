@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import SwiftPath
 
 class FormBuilder {
+  let backendProvider: BackendProvider!
+  
+  init(backendProvider: BackendProvider) {
+    self.backendProvider = backendProvider
+  }
+  
   func generateForm<T: SchemaBranch>(from schema: JSONSchema<T>) -> UIStackView? {
     let form = UIStackView()
     guard let properties = schema.root.properties else { return form }
@@ -28,14 +35,36 @@ class FormBuilder {
     f.setupStyle()
     f.labelText = property.title?.uppercased()
     
-//    switch property.self {
-//    case let remote as SchemaRemoteProperty:
-//      let p = UIPickerView()
-//      f.textField.inputView = p
-//      break
-//    default:
-//      <#code#>
-//    }
+    switch property.self {
+    case let remote as SchemaRemoteProperty:
+      guard let url = remote.url,
+      let namePath = remote.namePath else {
+        break
+      }
+      let p = UIPickerView()
+      f.textField.inputView = p
+      
+      let c = JSONCollection {
+        self.backendProvider.future(.getCustom(path: url))
+      }
+      c.refresh()
+      if let path = SwiftPath(namePath),
+      let names = try? path.evaluate(with: c.json) as? [String] {
+        let ds = PickerDataSource<[String]>(collection: names) { row in
+          guard let row = row else {
+            f.textFieldText = nil
+            return
+          }
+          f.textFieldText = row
+        }
+        //dataSources.append(ds)
+        p.dataSource = ds
+        p.delegate = ds
+      }
+      break
+    default:
+      break
+    }
     v.addSubview(f)
     
     f.heightAnchor.constraint(equalToConstant: 60).isActive = true

@@ -13,6 +13,7 @@ import Alamofire
 enum BackendPath: CustomStringConvertible {
   case forms
   case codable
+  case custom(String)
   
   var description: String {
     switch self {
@@ -20,6 +21,8 @@ enum BackendPath: CustomStringConvertible {
       return "forms.json"
     case .codable:
       return "codable.json"
+    case .custom(let path):
+      return path
     }
   }
 }
@@ -84,5 +87,9 @@ struct BackendRequest: TargetType {
   
   static func getCodableModel() -> BackendRequest {
     return BackendRequest(path: .codable)
+  }
+  
+  static func getCustom(path: String) -> BackendRequest {
+    return BackendRequest(path: .custom(path))
   }
 }

@@ -11,6 +11,8 @@ def shared_pods
   pod 'Moya'
   pod 'BrightFutures'
   pod 'Cache', :git => 'https://github.com/CameronPorter95/Cache.git', :branch => 'version_4.2.0_swift_5.0'
+  pod 'SwiftPath'
+  pod 'SwiftyJSON'
 
 end
 

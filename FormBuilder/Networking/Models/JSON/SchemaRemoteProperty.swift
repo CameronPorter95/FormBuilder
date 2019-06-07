@@ -37,10 +37,12 @@ class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
   
   func mapJSONToProperty(json: JSON, key: Key) {
     switch key {
-    case .maximum:
-      maximum = json[key.rawValue] as? Int
-    case .minimum:
-      minimum = json[key.rawValue] as? Int
+    case .url:
+      url = json[key.rawValue] as? String
+    case .valuePath:
+      valuePath = json[key.rawValue] as? String
+    case .namePath:
+      namePath = json[key.rawValue] as? String
     default:
       ()
     }

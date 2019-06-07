@@ -6,9 +6,9 @@
       "branch_id": {
         "title": "Height",
         "type": "remote",
-        "url": "http://localhost:8080/references/banks.json",
+        "url": "references/banks.json",
         "valuePath": "$.data[*].id",
-        "namePath": "$.data[*].attributes.name"
+        "namePath": "$.data[*].bank_name"
       }
     },
     "required": [

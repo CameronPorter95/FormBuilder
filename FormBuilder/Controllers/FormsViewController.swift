@@ -8,21 +8,20 @@
 
 import UIKit
 
-class FormsViewController: ProviderController {
+class FormsViewController: ProviderController, JSONDelegate {
   
   @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var formIDTextField: UITextField!
   
-  private var generatedTextFields = [AnimatedField]()
-  
   var jsonSchema: JSONSchema<SchemaRoot>? {
     didSet {
-      guard let schema = jsonSchema else { return }
+      guard let schema = jsonSchema,
+      let provider = backendProvider else { return }
       for view in stackView.arrangedSubviews {
         stackView.removeArrangedSubview(view)
         view.removeFromSuperview()
       }
-      for view in FormBuilder().generateForm(from: schema)?.arrangedSubviews ?? [] {
+      for view in FormBuilder(backendProvider: provider).generateForm(from: schema)?.arrangedSubviews ?? [] {
         stackView.addArrangedSubview(view)
       }
       print("FormRefreshed")
@@ -32,26 +31,21 @@ class FormsViewController: ProviderController {
   override func viewDidLoad() {
     super.viewDidLoad()
     backendProvider = BackendProvider()
+    backendProvider?.jsonProvider.delegates.append(self)
     getJSON()
   }
   
-  func getJSON(completion: ((JSON) -> ())? = nil) {
+  func getJSON() {
+    guard let provider = backendProvider else { return }
     let id = formIDTextField.text != nil ? Int(formIDTextField.text!) != nil ? Int(formIDTextField.text!) : 1 : 1
-    let jsonCollection = JSONCollection {
-      (self.backendProvider?.future(.getForms(id: id!)))! //TODO Fix force unwrap
-    }
-    jsonCollection.refresh()? //TODO move this to a jsonprovider class with delegate calls to onsuceed/onbegin etc
-    .onSuccess { json in
-      self.jsonSchema = JSONSchema(json: jsonCollection.json)
-      completion?(jsonCollection.json)
-    }
+    _ = provider.jsonProvider.getJSON(for: id!)
+  }
+  
+  func getJSONDidSucceed(json: JSON) {
+    self.jsonSchema = JSONSchema(json: json)
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {
-    getJSON { json in
-      self.generatedTextFields.removeAll()
-      self.jsonSchema = JSONSchema(json: json)
-    }
+    getJSON()
   }
 }
-
