@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import SwiftyJSON
 
 class JSONProvider {
   private weak var provider: BackendProvider!

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SchemaRoot: SchemaBranch, SchemaRootDefinition {
   var schema: String?
@@ -34,9 +35,9 @@ class SchemaRoot: SchemaBranch, SchemaRootDefinition {
   func mapJSONToProperty(json: JSON, key: RootKey) {
     switch key {
     case .schema:
-      schema = json[key.rawValue] as? String
+      schema = json[key.rawValue].stringValue
     case .id:
-      id = json[key.rawValue] as? String
+      id = json[key.rawValue].stringValue
     default:
       ()
     }

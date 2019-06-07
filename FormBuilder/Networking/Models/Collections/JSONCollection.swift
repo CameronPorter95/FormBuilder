@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import SwiftyJSON
 
 class JSONCollection: RefreshObservable {
   private let futureGenerator: () -> MoyaFuture<Response>
@@ -23,22 +24,15 @@ class JSONCollection: RefreshObservable {
   @discardableResult func refresh() -> MoyaFuture<JSON> {
     isLoading = true
     return futureGenerator()
-      .map { (r: Response) in
-        do {
-          let result = try JSONSerialization.jsonObject(with: r.data, options: [])
-          guard let json = result as? JSON else {
-            print("failed to map to json dictionary")
-            return [:]
-          }
-          if let data = json["data"] as? JSON {
-            self.set(sequence: data)
-          } else if let data = json["data"] as? [JSON] {
-            //self.set(sequence: data)
-          }
-        } catch {
-          print("failed to map to json dictionary")
+    .map { (r: Response) in
+      do {
+        if let json = try JSON(data: r.data).dictionaryValue["data"] {
+          self.set(sequence: json)
         }
-        return self.json
+      } catch {
+        print("Failed to map to json")
+      }
+      return self.json
     }
   }
   

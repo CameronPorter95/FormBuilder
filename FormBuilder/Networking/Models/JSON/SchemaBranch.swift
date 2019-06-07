@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SchemaBranch: SchemaBranchDefinition {
   var description: String?
@@ -41,16 +42,15 @@ class SchemaBranch: SchemaBranchDefinition {
     guard let key = key else { return }
     switch key {
     case .description:
-      description = json[key.rawValue] as? String
+      description = json[key.rawValue].stringValue
     case .type:
-      type = SchemaBranchType(rawValue: json[key.rawValue] as? String ?? "")
+      type = SchemaBranchType(rawValue: json[key.rawValue].stringValue)
     case .title:
-      title = json[key.rawValue] as? String
+      title = json[key.rawValue].stringValue
     case .properties:
-      properties = (json[key.rawValue] as? JSON)?.parse(as: SchemaProperty.self)
+      properties = json[key.rawValue].parse(as: SchemaProperty.self)
     case .required:
-      required = json[key.rawValue] as? [String]
-    
+      required = json[key.rawValue].arrayObject as? [String]
     }
   }
 }

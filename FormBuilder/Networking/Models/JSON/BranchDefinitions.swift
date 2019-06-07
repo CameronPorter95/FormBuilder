@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol SchemaBranchDefinition {
   ///Initialiser that maps a json object to the schema branch
@@ -65,12 +66,12 @@ enum SchemaBranchType: String {
 extension SchemaBranchDefinition {
   func checkCompatibility(json: JSON, keys: [String]? = nil) {
     guard let keys = keys else { return }
-    let filtered = json.keys.filter({
+    let filtered = json.dictionaryValue.keys.filter({ //The base of each branch should be a dictionary
       return keys.contains($0)
     })
     
     if filtered.count < json.count {
-      let difference = Set(json.keys).subtracting(Set(filtered))
+      let difference = Set(json.dictionaryValue.keys).subtracting(Set(filtered))
       print("There is an incompatibility on: \(String(describing: self)) on these keys: \(difference)") //TODO throw an error here and log to crashlytics
     }
   }

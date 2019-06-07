@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-typealias JSON = [String: AnyObject]
+//typealias JSON = [String: AnyObject]
 
 class JSONSchema<T: SchemaBranchDefinition> {
   ///The raw unmapped json
@@ -27,8 +28,7 @@ extension JSON {
     //If the desired type is a property then we must determine the type of property by looking ahead at the type given in json
     if type is SchemaProperty.Type {
       var properties: [String: SchemaProperty] = [:]
-      for (name, value) in self {
-        guard let json = value as? JSON else { return nil }
+      for (name, json) in self {
         let branch = SchemaBranch.init(json: json)
         switch branch.type {
         case SchemaBranchType.object?:
@@ -41,7 +41,7 @@ extension JSON {
           properties[name] = SchemaRemoteProperty.init(json: json)
         case .none:
           properties[name] = SchemaProperty.init(json: json)
-          print("Couldn't find a schema branch of type \(json["type"] ?? "" as AnyObject), defaulting to base property")
+          print("Couldn't find a schema branch of type \(json["type"].stringValue), defaulting to base property")
         } //TODO if passing as a subset of SchemaProperty, fail if not all values are able to pass as that subset
       }
       return properties as? [String : T]

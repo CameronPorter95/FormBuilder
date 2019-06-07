@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import SwiftyJSON
 
 protocol JSONDelegate: class {
   //Get JSON

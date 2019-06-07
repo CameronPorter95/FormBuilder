@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SchemaProperty: SchemaBranch, SchemaPropertyDefinition {
   var maximum: Int?
@@ -41,9 +42,9 @@ class SchemaProperty: SchemaBranch, SchemaPropertyDefinition {
   func mapJSONToProperty(json: JSON, key: PropertyKey) {
     switch key {
     case .maximum:
-      maximum = json[key.rawValue] as? Int
+      maximum = json[key.rawValue].intValue
     case .minimum:
-      minimum = json[key.rawValue] as? Int
+      minimum = json[key.rawValue].intValue
     default:
       ()
     }

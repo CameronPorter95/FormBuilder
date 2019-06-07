@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
   var url: String?
@@ -38,11 +39,11 @@ class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
   func mapJSONToProperty(json: JSON, key: Key) {
     switch key {
     case .url:
-      url = json[key.rawValue] as? String
+      url = json[key.rawValue].stringValue
     case .valuePath:
-      valuePath = json[key.rawValue] as? String
+      valuePath = json[key.rawValue].stringValue
     case .namePath:
-      namePath = json[key.rawValue] as? String
+      namePath = json[key.rawValue].stringValue
     default:
       ()
     }
