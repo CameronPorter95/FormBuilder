@@ -26,9 +26,7 @@ class JSONCollection: RefreshObservable {
     return futureGenerator()
     .map { (r: Response) in
       do {
-        if let json = try JSON(data: r.data).dictionaryValue["data"] {
-          self.set(sequence: json)
-        }
+        self.set(sequence: try JSON(data: r.data))
       } catch {
         print("Failed to map to json")
       }
@@ -42,3 +40,4 @@ class JSONCollection: RefreshObservable {
     refreshObserver?.refreshed()
   }
 }
+

@@ -7,8 +7,8 @@
         "title": "Height",
         "type": "remote",
         "url": "references/banks.json",
-        "valuePath": "$.data[*].id",
-        "namePath": "$.data[*].bank_name"
+        "valuePath": "$.data[0].id",
+        "namePath": "$.data[0].bank_name"
       }
     },
     "required": [

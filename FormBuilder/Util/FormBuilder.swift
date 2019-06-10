@@ -8,12 +8,13 @@
 
 import UIKit
 import SwiftPath
+import SwiftyJSON
 
 class FormBuilder {
-  let backendProvider: BackendProvider!
+  let viewController: DynamicViewController!
   
-  init(backendProvider: BackendProvider) {
-    self.backendProvider = backendProvider
+  init(for viewController: DynamicViewController) {
+    self.viewController = viewController
   }
   
   func generateForm<T: SchemaBranch>(from schema: JSONSchema<T>) -> UIStackView? {
@@ -21,12 +22,14 @@ class FormBuilder {
     guard let properties = schema.root.properties else { return form }
     
     for property in properties.values where property is SchemaProperty {
-      form.addArrangedSubview(createField(property as! SchemaProperty))
+      guard let field = createField(property as! SchemaProperty) else { return nil }
+      form.addArrangedSubview(field)
     }
     return form
   }
   
-  private func createField(_ property: SchemaProperty) -> UIView {
+  private func createField(_ property: SchemaProperty) -> UIView? {
+    guard let provider = viewController.backendProvider else { return nil }
     let v = UIView()
     v.translatesAutoresizingMaskIntoConstraints = false
     let f = AnimatedField()
@@ -45,22 +48,26 @@ class FormBuilder {
       f.textField.inputView = p
       
       let c = JSONCollection {
-        self.backendProvider.future(.getCustom(path: url))
+        provider.future(.getCustom(path: url))
       }
       c.refresh()
-      if let path = SwiftPath(namePath),
-      let names = try? path.evaluate(with: c.json) as? [String] {
-        let ds = PickerDataSource<[String]>(collection: names) { row in
-          guard let row = row else {
-            f.textFieldText = nil
-            return
+      .onSuccess { (json: JSON) in
+        if let path = SwiftPath(namePath),
+        let names = try? path.evaluate(with: c.json.dictionaryObject as JsonValue) {
+          let ds = PickerDataSource<[String]>(collection: [names as! String]) { row in
+            guard let row = row else {
+              f.textFieldText = nil
+              return
+            }
+            f.textFieldText = row
           }
-          f.textFieldText = row
+          
+          self.viewController.dataSources.append(ds)
+          p.dataSource = ds
+          p.delegate = ds
         }
-        //dataSources.append(ds)
-        p.dataSource = ds
-        p.delegate = ds
       }
+
       break
     default:
       break

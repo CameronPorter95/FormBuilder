@@ -35,6 +35,7 @@
 		B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD1229F964B006F2B4B /* BackendResponse.swift */; };
 		B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD3229F9A5F006F2B4B /* ProviderController.swift */; };
 		B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD5229F9CD4006F2B4B /* CodableModel.swift */; };
+		B37998C022ADE4E600AC1047 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */; };
 		B37CA17F22A9D3C700D06872 /* JSONDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */; };
 		B37CA18122A9DB0A00D06872 /* JSONProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CA18022A9DB0A00D06872 /* JSONProvider.swift */; };
 		B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */; };
@@ -99,6 +100,7 @@
 		B364ABD1229F964B006F2B4B /* BackendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendResponse.swift; sourceTree = "<group>"; };
 		B364ABD3229F9A5F006F2B4B /* ProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderController.swift; sourceTree = "<group>"; };
 		B364ABD5229F9CD4006F2B4B /* CodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
+		B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
 		B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDelegate.swift; sourceTree = "<group>"; };
 		B37CA18022A9DB0A00D06872 /* JSONProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONProvider.swift; sourceTree = "<group>"; };
 		B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDefinitions.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				B364ABD3229F9A5F006F2B4B /* ProviderController.swift */,
+				B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */,
 				B35FD459229F590800631844 /* FormsViewController.swift */,
 			);
 			path = Controllers;
@@ -563,6 +566,7 @@
 				B364ABCB229F8C25006F2B4B /* MoyaHelper.swift in Sources */,
 				B37CA17F22A9D3C700D06872 /* JSONDelegate.swift in Sources */,
 				B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */,
+				B37998C022ADE4E600AC1047 /* DynamicViewController.swift in Sources */,
 				B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */,
 				B317419B22A8C1440038C4EF /* PickerDataSource.swift in Sources */,
 				B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */,

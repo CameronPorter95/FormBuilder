@@ -9,8 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-//typealias JSON = [String: AnyObject]
-
 class JSONSchema<T: SchemaBranchDefinition> {
   ///The raw unmapped json
   var json: JSON!
@@ -18,8 +16,9 @@ class JSONSchema<T: SchemaBranchDefinition> {
   var root: SchemaBranchDefinition!
   
   init(json: JSON) {
-    self.json = json
-    self.root = T.init(json: json)
+    let data = json.dictionaryValue["data"] ?? json
+    self.root = T.init(json: data)
+    self.json = data
   }
 }
 
