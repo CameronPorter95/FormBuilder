@@ -1,0 +1,58 @@
+{
+    "data": {
+        "type": "forms",
+        "id": "108c064c-907d-4189-bbc1-445ed86bc325",
+        "attributes": {
+            "JSONSchema": {
+                "type": "object",
+                "title": "recipient",
+                "properties": {
+                    "account_name": {
+                        "type": "string",
+                        "title": "Account Name",
+                        "validation": "^(.+)$"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "title": "Nickname"
+                    },
+                    "reason": {
+                        "type": "remote",
+                        "title": "Transfer Purpose",
+                        "url": "references\/reasons.json",
+                        "valuePath": "$.data.*",
+                        "namePath": "$.data.*"
+                    },
+                    "email_address": {
+                        "type": "string",
+                        "title": "Email Address",
+                        "validation": "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+                    },
+                    "bank": {
+                        "type": "remote",
+                        "title": "Bank",
+                        "url": "references\/banks.json?country_code=ph",
+                        "valuePath": "$.data[*].id",
+                        "namePath": "$.data[*].bank_name"
+                    },
+                    "account_number": {
+                        "type": "string",
+                        "title": "Account Number"
+                    }
+                },
+                "required": [
+                    "account_name",
+                    "reason",
+                    "email_address",
+                    "bank",
+                    "account_number"
+                ],
+                "schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+                "id": "http:\/\/example.com\/root.json"
+            }
+        },
+        "links": {
+            "self": "http:\/\/service.form.v1.docker\/forms\/108c064c-907d-4189-bbc1-445ed86bc325"
+        }
+    }
+}

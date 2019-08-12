@@ -15,6 +15,9 @@
 		B31741A122A8D5A80038C4EF /* JSONCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31741A022A8D5A80038C4EF /* JSONCollection.swift */; };
 		B324BBD7229F7DBA004B209A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B324BBD6229F7DB9004B209A /* README.md */; };
 		B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B324BBDB229F88AA004B209A /* FormBuilder.swift */; };
+		B3278E39230108B500EB19DE /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3278E38230108B500EB19DE /* AuthPlugin.swift */; };
+		B3278E3B2301093F00EB19DE /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3278E3A2301093F00EB19DE /* BackendError.swift */; };
+		B3278E3D2301097700EB19DE /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3278E3C2301097700EB19DE /* Errors.swift */; };
 		B33BC2F722A5D2530018DAA3 /* SchemaRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */; };
 		B33BC2F922A5D28C0018DAA3 /* SchemaProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BC2F822A5D28C0018DAA3 /* SchemaProperty.swift */; };
 		B33BC51D22A5DD6C0018DAA3 /* PropertyIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BC51C22A5DD6C0018DAA3 /* PropertyIterable.swift */; };
@@ -74,6 +77,9 @@
 		B31741A022A8D5A80038C4EF /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
 		B324BBD6229F7DB9004B209A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B324BBDB229F88AA004B209A /* FormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilder.swift; sourceTree = "<group>"; };
+		B3278E38230108B500EB19DE /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		B3278E3A2301093F00EB19DE /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
+		B3278E3C2301097700EB19DE /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaRoot.swift; sourceTree = "<group>"; };
 		B33BC2F822A5D28C0018DAA3 /* SchemaProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaProperty.swift; sourceTree = "<group>"; };
 		B33BC51C22A5DD6C0018DAA3 /* PropertyIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyIterable.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				B324BBDB229F88AA004B209A /* FormBuilder.swift */,
 				B33BC51C22A5DD6C0018DAA3 /* PropertyIterable.swift */,
 				B3D4832922A77085003110B8 /* Styles.swift */,
+				B3278E3C2301097700EB19DE /* Errors.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -268,6 +275,7 @@
 				B364ABCC229F939A006F2B4B /* Providers */,
 				B37CA17D22A9D39800D06872 /* Delegates */,
 				B364ABCF229F9449006F2B4B /* BackendRequest.swift */,
+				B3278E38230108B500EB19DE /* AuthPlugin.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 			children = (
 				B364ABCA229F8C25006F2B4B /* MoyaHelper.swift */,
 				B364ABD1229F964B006F2B4B /* BackendResponse.swift */,
+				B3278E3A2301093F00EB19DE /* BackendError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -557,6 +566,8 @@
 				B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */,
 				B33BC51D22A5DD6C0018DAA3 /* PropertyIterable.swift in Sources */,
 				B35FD45A229F590800631844 /* FormsViewController.swift in Sources */,
+				B3278E3D2301097700EB19DE /* Errors.swift in Sources */,
+				B3278E3B2301093F00EB19DE /* BackendError.swift in Sources */,
 				B35FD458229F590800631844 /* AppDelegate.swift in Sources */,
 				B33BC2F722A5D2530018DAA3 /* SchemaRoot.swift in Sources */,
 				B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */,
@@ -574,6 +585,7 @@
 				B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */,
 				B37CA18122A9DB0A00D06872 /* JSONProvider.swift in Sources */,
 				B3D4832A22A77085003110B8 /* Styles.swift in Sources */,
+				B3278E39230108B500EB19DE /* AuthPlugin.swift in Sources */,
 				B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */,
 				B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */,
 				B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */,

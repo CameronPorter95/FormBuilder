@@ -17,3 +17,14 @@ struct BackendResponse<T>: Codable where T: Codable {
     self.data = data
   }
 }
+
+struct BackendJSONAPIResponse<T>: Codable where T: Codable {
+  var type: String?
+  var id: String?
+  var links: [String: String]?
+  var attributes: T?
+  
+  init(attributes: T) {
+    self.attributes = attributes
+  }
+}

@@ -10,6 +10,8 @@ import Foundation
 import Moya
 import SwiftyJSON
 
+typealias FormRequest = (form: String, recipientType: String, send: String, payout: String)
+
 class JSONCollection: RefreshObservable {
   private let futureGenerator: () -> MoyaFuture<Response>
   

@@ -10,15 +10,28 @@ import UIKit
 import SwiftyJSON
 
 class FormsViewController: DynamicViewController {
-  @IBOutlet weak var formIDTextField: UITextField!
+  @IBOutlet weak var formTextField: UITextField!
+  @IBOutlet weak var typeTextField: UITextField!
+  @IBOutlet weak var sendTextField: UITextField!
+  @IBOutlet weak var payoutTextField: UITextField!
+  
+  var request = FormRequest(
+    form: "recipient",
+    recipientType: "bank_account",
+    send: "NZD",
+    payout: "PHP")
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    generateForm(for: 1)
+    generateForm(for: request)
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {
-    let id = formIDTextField.text != nil ? Int(formIDTextField.text!) != nil ? Int(formIDTextField.text!) : 1 : 1
-    generateForm(for: id!)
+    request.form = formTextField.text ?? "recipient"
+    request.recipientType = typeTextField.text ?? "bank_account"
+    request.send = sendTextField.text ?? "NZD"
+    request.payout = payoutTextField.text ?? "PHP"
+    
+    generateForm(for: request)
   }
 }

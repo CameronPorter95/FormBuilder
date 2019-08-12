@@ -16,9 +16,11 @@ class JSONSchema<T: SchemaBranchDefinition> {
   var root: SchemaBranchDefinition!
   
   init(json: JSON) {
-    let data = json.dictionaryValue["data"] ?? json
-    self.root = T.init(json: data)
-    self.json = data
+    print(json.stringValue)
+    if let data = json.dictionaryValue["data"]?.dictionaryValue["attributes"]?.dictionaryValue["JSONSchema"] {
+      self.root = T.init(json: data)
+      self.json = data
+    }
   }
 }
 

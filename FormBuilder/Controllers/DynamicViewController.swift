@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Moya
 
 class DynamicViewController: ProviderController, JSONDelegate {
   @IBOutlet weak var stackView: UIStackView!
@@ -17,13 +18,13 @@ class DynamicViewController: ProviderController, JSONDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    backendProvider = BackendProvider()
+    backendProvider = BackendProvider.newWithAuthLoggerActivity()
     backendProvider?.jsonProvider.delegates.append(self)
   }
   
-  func generateForm(for form: Int) {
+  func generateForm(for request: FormRequest) {
     guard let provider = backendProvider else { return }
-    _ = provider.jsonProvider.getJSON(for: form)
+    _ = provider.jsonProvider.getJSON(for: request)
   }
   
   func getJSONDidSucceed(json: JSON) {

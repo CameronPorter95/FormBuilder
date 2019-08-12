@@ -18,9 +18,9 @@ class JSONProvider {
     self.provider = provider
   }
   
-  func getJSON(for formID: Int) -> MoyaFuture<JSON> {
+  func getJSON(for request: FormRequest) -> MoyaFuture<JSON> {
     let jsonCollection = JSONCollection {
-      self.provider.future(.getForms(id: formID))
+      self.provider.future(.getForm(for: request))
     }
     delegates.forEach { $0.getJSONDidBegin() }
     return jsonCollection.refresh()

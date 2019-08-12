@@ -11,14 +11,14 @@ import Moya
 import Alamofire
 
 enum BackendPath: CustomStringConvertible {
-  case forms
+  case form
   case codable
   case custom(String)
   
   var description: String {
     switch self {
-    case .forms:
-      return "forms.json"
+    case .form:
+      return "form.json"
     case .codable:
       return "codable.json"
     case .custom(let path):
@@ -51,7 +51,7 @@ struct BackendRequest: TargetType {
   }
   
   var baseURL: URL {
-    return URL(string: "http://localhost:8080/")!
+    return URL(string: "https://secure.orbitremit.io/api/v2/")!
   }
   
   var sampleData: Data {
@@ -78,11 +78,17 @@ struct BackendRequest: TargetType {
     return key
   }
 
-  static func getForms(id: Int) -> BackendRequest {
-    let p = [
-      "id": id
-    ]
-    return BackendRequest(path: .forms, parameters: p, parameterEncoding: URLEncoding())
+  static func getForm(for request: FormRequest) -> BackendRequest {
+    let attributes = [
+      "form": request.form,
+      "recipient_type": request.recipientType,
+      "send_currency": request.send,
+      "payout_currency": request.payout] as [String: Any]
+    let data = [
+      "type": "forms",
+      "attributes": attributes] as [String : Any]
+    let p = ["data": data] as [String : Any]
+    return BackendRequest(path: .form, method: .post, parameters: p)
   }
   
   static func getCodableModel() -> BackendRequest {
