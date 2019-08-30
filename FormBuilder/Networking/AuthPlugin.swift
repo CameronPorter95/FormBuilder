@@ -15,7 +15,7 @@ final class AuthPlugin: PluginType {
   
   func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
     var request = request
-    request.addValue("Bearer " + "", forHTTPHeaderField: "Authorization")
+    request.addValue("Bearer " + "6a52c1fe2705ee7bac692d5c201239d04c566d0d", forHTTPHeaderField: "Authorization")
     return request
   }
   

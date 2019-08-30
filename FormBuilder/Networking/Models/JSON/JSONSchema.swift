@@ -9,18 +9,16 @@
 import Foundation
 import SwiftyJSON
 
-class JSONSchema<T: SchemaBranchDefinition> {
+class JSONSchema<T: SchemaBranchDefinition>: JsonStructure {
   ///The raw unmapped json
-  var json: JSON!
+  var json: JSON?
   ///The root branch of this JSONSchema
   var root: SchemaBranchDefinition!
   
-  init(json: JSON) {
-    print(json.stringValue)
-    if let data = json.dictionaryValue["data"]?.dictionaryValue["attributes"]?.dictionaryValue["JSONSchema"] {
-      self.root = T.init(json: data)
-      self.json = data
-    }
+  required init(_ json: JSON) {
+    let schema = json["JSONSchema"]
+    self.json = schema
+    root = T.init(json: schema)
   }
 }
 

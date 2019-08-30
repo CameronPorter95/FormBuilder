@@ -19,7 +19,6 @@ class FormBuilder {
   
   func generateForm<T: SchemaBranch>(from schema: JSONSchema<T>) -> UIStackView? {
     let form = UIStackView()
-    print(schema)
     guard let properties = schema.root.properties else { return form }
     
     for property in properties.values where property is SchemaProperty {

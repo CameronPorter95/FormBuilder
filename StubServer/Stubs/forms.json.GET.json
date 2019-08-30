@@ -1,7 +1,7 @@
 {
     "data": {
         "type": "forms",
-        "id": "108c064c-907d-4189-bbc1-445ed86bc325",
+        "id": "62f3a732-dc5c-49b7-8387-78842d3f973c",
         "attributes": {
             "JSONSchema": {
                 "type": "object",
@@ -47,12 +47,20 @@
                     "bank",
                     "account_number"
                 ],
+                "order": [
+                    "account_name",
+                    "nickname",
+                    "email_address",
+                    "reason",
+                    "account_number",
+                    "bank"
+                ],
                 "schema": "http:\/\/json-schema.org\/draft-07\/schema#",
                 "id": "http:\/\/example.com\/root.json"
             }
         },
         "links": {
-            "self": "http:\/\/service.form.v1.docker\/forms\/108c064c-907d-4189-bbc1-445ed86bc325"
+            "self": "http:\/\/form.service.svc.cluster.local\/forms\/62f3a732-dc5c-49b7-8387-78842d3f973c"
         }
     }
 }

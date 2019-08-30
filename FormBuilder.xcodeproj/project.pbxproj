@@ -31,7 +31,6 @@
 		B35FD487229F6A2000631844 /* AnimatedField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35FD486229F6A2000631844 /* AnimatedField.xib */; };
 		B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FD488229F6D4B00631844 /* AnimatedField.swift */; };
 		B35FD48D229F73F300631844 /* NibType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35FD48C229F73F300631844 /* NibType.swift */; };
-		B364ABC7229F8B25006F2B4B /* FormDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABC6229F8B25006F2B4B /* FormDefinition.swift */; };
 		B364ABCB229F8C25006F2B4B /* MoyaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABCA229F8C25006F2B4B /* MoyaHelper.swift */; };
 		B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABCD229F93B0006F2B4B /* BackendProvider.swift */; };
 		B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABCF229F9449006F2B4B /* BackendRequest.swift */; };
@@ -39,8 +38,10 @@
 		B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD3229F9A5F006F2B4B /* ProviderController.swift */; };
 		B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD5229F9CD4006F2B4B /* CodableModel.swift */; };
 		B37998C022ADE4E600AC1047 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */; };
+		B37C3D2A23162EE200D0C22E /* JsonStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2923162EE200D0C22E /* JsonStructure.swift */; };
+		B37C3D2C2316354100D0C22E /* FormProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2B2316354100D0C22E /* FormProvider.swift */; };
+		B37C3D2E231636FC00D0C22E /* SchemaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */; };
 		B37CA17F22A9D3C700D06872 /* JSONDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */; };
-		B37CA18122A9DB0A00D06872 /* JSONProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CA18022A9DB0A00D06872 /* JSONProvider.swift */; };
 		B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */; };
 		B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */; };
 		B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4810522A73479003110B8 /* SchemaBranch.swift */; };
@@ -99,7 +100,6 @@
 		B35FD486229F6A2000631844 /* AnimatedField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimatedField.xib; sourceTree = "<group>"; };
 		B35FD488229F6D4B00631844 /* AnimatedField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedField.swift; sourceTree = "<group>"; };
 		B35FD48C229F73F300631844 /* NibType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibType.swift; sourceTree = "<group>"; };
-		B364ABC6229F8B25006F2B4B /* FormDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDefinition.swift; sourceTree = "<group>"; };
 		B364ABCA229F8C25006F2B4B /* MoyaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHelper.swift; sourceTree = "<group>"; };
 		B364ABCD229F93B0006F2B4B /* BackendProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendProvider.swift; sourceTree = "<group>"; };
 		B364ABCF229F9449006F2B4B /* BackendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendRequest.swift; sourceTree = "<group>"; };
@@ -107,8 +107,10 @@
 		B364ABD3229F9A5F006F2B4B /* ProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderController.swift; sourceTree = "<group>"; };
 		B364ABD5229F9CD4006F2B4B /* CodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
 		B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
+		B37C3D2923162EE200D0C22E /* JsonStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonStructure.swift; sourceTree = "<group>"; };
+		B37C3D2B2316354100D0C22E /* FormProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormProvider.swift; sourceTree = "<group>"; };
+		B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaDelegate.swift; sourceTree = "<group>"; };
 		B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDelegate.swift; sourceTree = "<group>"; };
-		B37CA18022A9DB0A00D06872 /* JSONProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONProvider.swift; sourceTree = "<group>"; };
 		B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDefinitions.swift; sourceTree = "<group>"; };
 		B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
 		B3D4810522A73479003110B8 /* SchemaBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaBranch.swift; sourceTree = "<group>"; };
@@ -313,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				B364ABCD229F93B0006F2B4B /* BackendProvider.swift */,
-				B37CA18022A9DB0A00D06872 /* JSONProvider.swift */,
+				B37C3D2B2316354100D0C22E /* FormProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */,
+				B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -335,7 +338,7 @@
 				B33BC2F622A5D2530018DAA3 /* SchemaRoot.swift */,
 				B33BC2F822A5D28C0018DAA3 /* SchemaProperty.swift */,
 				B3173D5422A87D750038C4EF /* SchemaRemoteProperty.swift */,
-				B364ABC6229F8B25006F2B4B /* FormDefinition.swift */,
+				B37C3D2923162EE200D0C22E /* JsonStructure.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37C3D2E231636FC00D0C22E /* SchemaDelegate.swift in Sources */,
 				B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */,
 				B33BC51D22A5DD6C0018DAA3 /* PropertyIterable.swift in Sources */,
 				B35FD45A229F590800631844 /* FormsViewController.swift in Sources */,
@@ -583,15 +587,15 @@
 				B364ABCE229F93B0006F2B4B /* BackendProvider.swift in Sources */,
 				B317419F22A8C2610038C4EF /* AsyncCollection.swift in Sources */,
 				B324BBDC229F88AA004B209A /* FormBuilder.swift in Sources */,
-				B37CA18122A9DB0A00D06872 /* JSONProvider.swift in Sources */,
 				B3D4832A22A77085003110B8 /* Styles.swift in Sources */,
 				B3278E39230108B500EB19DE /* AuthPlugin.swift in Sources */,
 				B35FD489229F6D4B00631844 /* AnimatedField.swift in Sources */,
 				B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */,
 				B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */,
+				B37C3D2C2316354100D0C22E /* FormProvider.swift in Sources */,
+				B37C3D2A23162EE200D0C22E /* JsonStructure.swift in Sources */,
 				B35FD48D229F73F300631844 /* NibType.swift in Sources */,
 				B31741A122A8D5A80038C4EF /* JSONCollection.swift in Sources */,
-				B364ABC7229F8B25006F2B4B /* FormDefinition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
