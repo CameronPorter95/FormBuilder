@@ -10,9 +10,15 @@ import Foundation
 import SwiftyJSON
 
 class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
-  var url: String?
+  var parameters: [String: Any]?
+  
   var valuePath: String?
   var namePath: String?
+  var url: RemoteURL? {
+    didSet {
+      parameters = url?.stripParameters()
+    }
+  }
   
   required init(json: JSON) {
     super.init(json: json, keys: Key.allCases.map({
@@ -47,5 +53,27 @@ class SchemaRemoteProperty: SchemaProperty, SchemaRemotePropertyDefinition {
     default:
       ()
     }
+  }
+}
+
+typealias RemoteURL = String
+
+extension RemoteURL {
+  mutating func stripParameters() -> [String: Any]? {
+    let split = self.split { $0 == "?" }
+    self = String(split[0])
+    
+    guard let parametersString: [String] = (split.last?.split { $0 == "&" }.map { String($0) }) else {
+      return nil
+    }
+    
+    var parameters: [String: Any] = [:]
+    parametersString.forEach {
+      let split = $0.split { $0 == "=" }
+      if let key = split.first, let value = split.last, key != value {
+        parameters[String(key)] = String(value)
+      }
+    }
+    return parameters.count > 0 ? parameters : nil
   }
 }

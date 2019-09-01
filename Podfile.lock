@@ -12,7 +12,7 @@ PODS:
     - Result (~> 4.0)
   - NextResponderTextField (3.1.0)
   - Result (4.1.0)
-  - SwiftPath (0.2.0)
+  - SMJJSONPath (0.2.3)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -22,7 +22,7 @@ DEPENDENCIES:
   - KeychainAccess
   - Moya
   - NextResponderTextField
-  - SwiftPath
+  - SMJJSONPath
   - SwiftyJSON
 
 SPEC REPOS:
@@ -33,7 +33,7 @@ SPEC REPOS:
     - Moya
     - NextResponderTextField
     - Result
-    - SwiftPath
+    - SMJJSONPath
     - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -60,9 +60,9 @@ SPEC CHECKSUMS:
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   NextResponderTextField: 015b441b1dec243dc281bdb6a1711dcdc03cef85
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SwiftPath: 62b78127ce40d7bb37eab197a1d72fe0d0c58bfd
+  SMJJSONPath: f17ad811ebac9f68ea304f89a354c27653975021
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 617971c7cb5d2147c749e56eb9e9943a137a48bb
+PODFILE CHECKSUM: 11860a9686cf3399f5cc8ba533d5751f1bd89f12
 
-COCOAPODS: 1.7.0.beta.3
+COCOAPODS: 1.7.5

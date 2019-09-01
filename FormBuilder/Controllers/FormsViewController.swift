@@ -27,10 +27,10 @@ class FormsViewController: DynamicViewController {
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {
-    request.form = formTextField.text ?? "recipient"
-    request.recipientType = typeTextField.text ?? "bank_account"
-    request.send = sendTextField.text ?? "NZD"
-    request.payout = payoutTextField.text ?? "PHP"
+    request.form = formTextField.text == "" ? "recipient" : formTextField.text ?? "recipient"
+    request.recipientType = typeTextField.text == "" ? "bank_account" : typeTextField.text ?? "bank_account"
+    request.send = sendTextField.text == "" ? "NZD" : sendTextField.text ?? "NZD"
+    request.payout = payoutTextField.text == "" ? "PHP" : payoutTextField.text ?? "PHP"
     
     generateForm(for: request)
   }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import SwiftPath
+//import SwiftPath
 import SwiftyJSON
+import SMJJSONPath
 
 class FormBuilder {
   let viewController: DynamicViewController!
@@ -48,20 +49,22 @@ class FormBuilder {
       f.textField.inputView = p
       
       let c = JSONCollection {
-        provider.future(.getCustom(path: url))
+        provider.future(remote.parameters == nil ? .getRemote(path: url) :
+          .getRemote(path: url, parameters: remote.parameters!))
       }
       c.refresh()
       .onSuccess { (json: JSON) in
-        if let path = SwiftPath(namePath),
-        let names = try? path.evaluate(with: c.json.dictionaryObject as JsonValue) {
-          let ds = PickerDataSource<[String]>(collection: [names as! String]) { row in
+        if let data = c.json.dictionaryObject,
+        let path = try? SMJJSONPath(jsonPathString: namePath),
+        let names = try? path.result(forJSONObject: data, configuration: SMJConfiguration.default()) as? [String] {
+          let ds = PickerDataSource<[String]>(collection: names) { row in
             guard let row = row else {
               f.textFieldText = nil
               return
             }
             f.textFieldText = row
           }
-          
+
           self.viewController.dataSources.append(ds)
           p.dataSource = ds
           p.delegate = ds
