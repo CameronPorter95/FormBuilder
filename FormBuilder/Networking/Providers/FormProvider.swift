@@ -20,7 +20,7 @@ class FormProvider {
   
   func getSchema(for request: FormRequest) -> MoyaFuture<JSONSchema<SchemaRoot>> {
     delegates.forEach { $0.getSchemaDidBegin() }
-    return provider.futureJsonObject(.getForm(for: request), isJsonApi: true)
+    return provider.futureObject(.getForm(for: request), isJsonApi: true)
       .onSuccess { (schema: JSONSchema<SchemaRoot>) in
         self.delegates.forEach { $0.getSchemaDidSucceed(schema: schema) }
       }.onFailure { error in

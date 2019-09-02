@@ -24,6 +24,7 @@ class FormsViewController: DynamicViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     generateForm(for: request)
+    backendProvider?.recipientProvider.getRecipients()
   }
   
   @IBAction func refreshFormPressed(_ sender: Any) {

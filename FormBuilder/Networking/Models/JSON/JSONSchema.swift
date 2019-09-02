@@ -10,15 +10,25 @@ import Foundation
 import SwiftyJSON
 
 class JSONSchema<T: SchemaBranchDefinition>: JsonStructure {
-  ///The raw unmapped json
-  var json: JSON?
   ///The root branch of this JSONSchema
   var root: SchemaBranchDefinition!
+  ///The raw unmapped json
+  var json: JSON?
   
   required init(_ json: JSON) {
-    let schema = json["JSONSchema"]
-    self.json = schema
-    root = T.init(json: schema)
+    self.json = json
+    root = T.init(json: json)
+  }
+  
+  required init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    let json = try values.decode(JSON.self, forKey: .json)
+    self.json = json
+    root = T.init(json: json)
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case json = "JSONSchema"
   }
 }
 

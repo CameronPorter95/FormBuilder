@@ -36,12 +36,15 @@
 		B364ABD0229F9449006F2B4B /* BackendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABCF229F9449006F2B4B /* BackendRequest.swift */; };
 		B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD1229F964B006F2B4B /* BackendResponse.swift */; };
 		B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD3229F9A5F006F2B4B /* ProviderController.swift */; };
-		B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364ABD5229F9CD4006F2B4B /* CodableModel.swift */; };
+		B378319F231C91130056A330 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B378319E231C91130056A330 /* Recipient.swift */; };
+		B37831A1231C92F00056A330 /* RecipientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37831A0231C92F00056A330 /* RecipientProvider.swift */; };
+		B37831A3231C935E0056A330 /* RecipientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37831A2231C935E0056A330 /* RecipientDelegate.swift */; };
+		B37831A5231C94FD0056A330 /* RecipientCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37831A4231C94FD0056A330 /* RecipientCollection.swift */; };
+		B37831A7231C96960056A330 /* MoyaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37831A6231C96960056A330 /* MoyaCollection.swift */; };
 		B37998C022ADE4E600AC1047 /* DynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */; };
 		B37C3D2A23162EE200D0C22E /* JsonStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2923162EE200D0C22E /* JsonStructure.swift */; };
 		B37C3D2C2316354100D0C22E /* FormProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2B2316354100D0C22E /* FormProvider.swift */; };
 		B37C3D2E231636FC00D0C22E /* SchemaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */; };
-		B37CA17F22A9D3C700D06872 /* JSONDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */; };
 		B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */; };
 		B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */; };
 		B3D4810622A73479003110B8 /* SchemaBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D4810522A73479003110B8 /* SchemaBranch.swift */; };
@@ -105,12 +108,15 @@
 		B364ABCF229F9449006F2B4B /* BackendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendRequest.swift; sourceTree = "<group>"; };
 		B364ABD1229F964B006F2B4B /* BackendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendResponse.swift; sourceTree = "<group>"; };
 		B364ABD3229F9A5F006F2B4B /* ProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderController.swift; sourceTree = "<group>"; };
-		B364ABD5229F9CD4006F2B4B /* CodableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
+		B378319E231C91130056A330 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		B37831A0231C92F00056A330 /* RecipientProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientProvider.swift; sourceTree = "<group>"; };
+		B37831A2231C935E0056A330 /* RecipientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientDelegate.swift; sourceTree = "<group>"; };
+		B37831A4231C94FD0056A330 /* RecipientCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientCollection.swift; sourceTree = "<group>"; };
+		B37831A6231C96960056A330 /* MoyaCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCollection.swift; sourceTree = "<group>"; };
 		B37998BF22ADE4E600AC1047 /* DynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicViewController.swift; sourceTree = "<group>"; };
 		B37C3D2923162EE200D0C22E /* JsonStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonStructure.swift; sourceTree = "<group>"; };
 		B37C3D2B2316354100D0C22E /* FormProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormProvider.swift; sourceTree = "<group>"; };
 		B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaDelegate.swift; sourceTree = "<group>"; };
-		B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDelegate.swift; sourceTree = "<group>"; };
 		B383ED6922A08C43003CFDBB /* BranchDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDefinitions.swift; sourceTree = "<group>"; };
 		B383ED6E22A0E86B003CFDBB /* JSONSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchema.swift; sourceTree = "<group>"; };
 		B3D4810522A73479003110B8 /* SchemaBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaBranch.swift; sourceTree = "<group>"; };
@@ -285,7 +291,9 @@
 		B364ABC5229F89C9006F2B4B /* Collections */ = {
 			isa = PBXGroup;
 			children = (
+				B37831A6231C96960056A330 /* MoyaCollection.swift */,
 				B31741A022A8D5A80038C4EF /* JSONCollection.swift */,
+				B37831A4231C94FD0056A330 /* RecipientCollection.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -296,7 +304,7 @@
 				B383ED6B22A0D8C3003CFDBB /* JSON */,
 				B364ABC5229F89C9006F2B4B /* Collections */,
 				B364ABC9229F8C15006F2B4B /* Helpers */,
-				B364ABD5229F9CD4006F2B4B /* CodableModel.swift */,
+				B378319E231C91130056A330 /* Recipient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 			children = (
 				B364ABCD229F93B0006F2B4B /* BackendProvider.swift */,
 				B37C3D2B2316354100D0C22E /* FormProvider.swift */,
+				B37831A0231C92F00056A330 /* RecipientProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -323,8 +332,8 @@
 		B37CA17D22A9D39800D06872 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				B37CA17E22A9D3C700D06872 /* JSONDelegate.swift */,
 				B37C3D2D231636FC00D0C22E /* SchemaDelegate.swift */,
+				B37831A2231C935E0056A330 /* RecipientDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -569,9 +578,12 @@
 				B37C3D2E231636FC00D0C22E /* SchemaDelegate.swift in Sources */,
 				B383ED6F22A0E86B003CFDBB /* JSONSchema.swift in Sources */,
 				B33BC51D22A5DD6C0018DAA3 /* PropertyIterable.swift in Sources */,
+				B37831A5231C94FD0056A330 /* RecipientCollection.swift in Sources */,
 				B35FD45A229F590800631844 /* FormsViewController.swift in Sources */,
 				B3278E3D2301097700EB19DE /* Errors.swift in Sources */,
+				B378319F231C91130056A330 /* Recipient.swift in Sources */,
 				B3278E3B2301093F00EB19DE /* BackendError.swift in Sources */,
+				B37831A1231C92F00056A330 /* RecipientProvider.swift in Sources */,
 				B35FD458229F590800631844 /* AppDelegate.swift in Sources */,
 				B33BC2F722A5D2530018DAA3 /* SchemaRoot.swift in Sources */,
 				B364ABD4229F9A5F006F2B4B /* ProviderController.swift in Sources */,
@@ -579,8 +591,7 @@
 				B3173D5522A87D750038C4EF /* SchemaRemoteProperty.swift in Sources */,
 				B383ED6A22A08C43003CFDBB /* BranchDefinitions.swift in Sources */,
 				B364ABCB229F8C25006F2B4B /* MoyaHelper.swift in Sources */,
-				B37CA17F22A9D3C700D06872 /* JSONDelegate.swift in Sources */,
-				B364ABD6229F9CD4006F2B4B /* CodableModel.swift in Sources */,
+				B37831A3231C935E0056A330 /* RecipientDelegate.swift in Sources */,
 				B37998C022ADE4E600AC1047 /* DynamicViewController.swift in Sources */,
 				B364ABD2229F964B006F2B4B /* BackendResponse.swift in Sources */,
 				B317419B22A8C1440038C4EF /* PickerDataSource.swift in Sources */,
@@ -596,6 +607,7 @@
 				B37C3D2A23162EE200D0C22E /* JsonStructure.swift in Sources */,
 				B35FD48D229F73F300631844 /* NibType.swift in Sources */,
 				B31741A122A8D5A80038C4EF /* JSONCollection.swift in Sources */,
+				B37831A7231C96960056A330 /* MoyaCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

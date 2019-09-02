@@ -15,6 +15,9 @@ final class BackendProvider: MoyaProvider<BackendRequest> {
   lazy var formProvider: FormProvider = {
     return FormProvider(provider: self)
   }()
+  lazy var recipientProvider: RecipientProvider = {
+    return RecipientProvider(provider: self)
+  }()
   
   var auth: AuthPlugin? {
     return plugins.first as? AuthPlugin
@@ -33,55 +36,104 @@ final class BackendProvider: MoyaProvider<BackendRequest> {
     return BackendProvider(plugins: ps)
   }
   
-  func futureJsonObject<T: JsonStructure>(_ target: BackendRequest, isJsonApi: Bool = false) -> MoyaFuture<T> {
+  func futureObject<T: Codable>(_ target: BackendRequest,
+                                reauth: Bool = true, isJsonApi: Bool = false) -> MoyaFuture<T> {
     return future(target).flatMap { r -> MoyaResult<T> in
       let result: MoyaResult<T>!
       if isJsonApi {
-        result = r.mapObject().flatMap { (br: BackendResponse<BackendJSONAPIResponse<JSON>>) in
-          guard let data = br.data,
-            let attributes = data.attributes else {
-              return Result(error: MoyaError.jsonMapping(r))
+        result = r.mapObject().flatMap { (br: BackendResponse<BackendJSONAPIResponse<T>>) in
+          guard let attributes = br.data?.attributes else {
+            return Result(error: MoyaError.jsonMapping(r))
           }
-          let jsonStruct = T.init(attributes)
-          return Result(value: jsonStruct)
+          return Result(value: attributes)
         }
       } else {
-        result = r.mapObject().flatMap { (br: BackendResponse<JSON>) in
+        result = r.mapObject().flatMap { (br: BackendResponse<T>) in
           guard let data = br.data else {
             return Result(error: MoyaError.jsonMapping(r))
           }
-          let jsonStruct = T.init(data)
-          return Result(value: jsonStruct)
+          return Result(value: data)
         }
       }
       return result
     }
   }
   
-  func futureJsonArray<T: JsonStructure>(_ target: BackendRequest, isJsonApi: Bool = false) -> MoyaFuture<[T]> {
+  func futureArray<T: Codable>(_ target: BackendRequest,
+                               reauth: Bool = true, isJsonApi: Bool = false) -> MoyaFuture<[T]> {
     return future(target).flatMap { r -> MoyaResult<[T]> in
       let result: MoyaResult<[T]>!
       if isJsonApi {
-        result = r.mapObject().flatMap { (br: BackendArrayResponse<BackendJSONAPIResponse<JSON>>) in
+        result = r.mapObject().flatMap { (br: BackendArrayResponse<BackendJSONAPIResponse<T>>) in
           guard let data = br.data else {
             return Result(error: MoyaError.jsonMapping(r))
           }
           let attributes = data.compactMap { (jsonAPI: BackendJSONAPIResponse) in
             return jsonAPI.attributes
           }
-          let jsonStructs = attributes.map { T.init($0) }
-          return Result(value: jsonStructs)
+          return Result(value: attributes)
         }
       } else {
-        result = r.mapObject().flatMap { (br: BackendArrayResponse<JSON>) in
+        result = r.mapObject().flatMap { (br: BackendArrayResponse<T>) in
           guard let data = br.data else {
             return Result(error: MoyaError.jsonMapping(r))
           }
-          let jsonStructs = data.map { T.init($0) }
-          return Result(value: jsonStructs)
+          return Result(value: data)
         }
       }
       return result
     }
   }
+  
+//  func futureJsonObject<T: JsonStructure>(_ target: BackendRequest, isJsonApi: Bool = false) -> MoyaFuture<T> {
+//    return future(target).flatMap { r -> MoyaResult<T> in
+//      let result: MoyaResult<T>!
+//      if isJsonApi {
+//        result = r.mapObject().flatMap { (br: BackendResponse<BackendJSONAPIResponse<JSON>>) in
+//          guard let data = br.data,
+//            let attributes = data.attributes else {
+//              return Result(error: MoyaError.jsonMapping(r))
+//          }
+//          let jsonStruct = T.init(attributes)
+//          return Result(value: jsonStruct)
+//        }
+//      } else {
+//        result = r.mapObject().flatMap { (br: BackendResponse<JSON>) in
+//          guard let data = br.data else {
+//            return Result(error: MoyaError.jsonMapping(r))
+//          }
+//          let jsonStruct = T.init(data)
+//          return Result(value: jsonStruct)
+//        }
+//      }
+//      return result
+//    }
+//  }
+//
+//  func futureJsonArray<T: JsonStructure>(_ target: BackendRequest, isJsonApi: Bool = false) -> MoyaFuture<[T]> {
+//    return future(target).flatMap { r -> MoyaResult<[T]> in
+//      let result: MoyaResult<[T]>!
+//      if isJsonApi {
+//        result = r.mapObject().flatMap { (br: BackendArrayResponse<BackendJSONAPIResponse<JSON>>) in
+//          guard let data = br.data else {
+//            return Result(error: MoyaError.jsonMapping(r))
+//          }
+//          let attributes = data.compactMap { (jsonAPI: BackendJSONAPIResponse) in
+//            return jsonAPI.attributes
+//          }
+//          let jsonStructs = attributes.map { T.init($0) }
+//          return Result(value: jsonStructs)
+//        }
+//      } else {
+//        result = r.mapObject().flatMap { (br: BackendArrayResponse<JSON>) in
+//          guard let data = br.data else {
+//            return Result(error: MoyaError.jsonMapping(r))
+//          }
+//          let jsonStructs = data.map { T.init($0) }
+//          return Result(value: jsonStructs)
+//        }
+//      }
+//      return result
+//    }
+//  }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-protocol JsonStructure {
+protocol JsonStructure: Codable {
   var json: JSON? { get set }
   
   init(_ json: JSON)

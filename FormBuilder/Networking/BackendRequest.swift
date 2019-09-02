@@ -12,15 +12,15 @@ import Alamofire
 
 enum BackendPath: CustomStringConvertible {
   case form
-  case codable
+  case recipients
   case remote(String)
   
   var description: String {
     switch self {
     case .form:
       return "form.json"
-    case .codable:
-      return "codable.json"
+    case .recipients:
+      return "recipients.json"
     case .remote(let path):
       return path
     }
@@ -91,8 +91,8 @@ struct BackendRequest: TargetType {
     return BackendRequest(path: .form, method: .post, parameters: p)
   }
   
-  static func getCodableModel() -> BackendRequest {
-    return BackendRequest(path: .codable)
+  static func getRecipients() -> BackendRequest {
+    return BackendRequest(path: .recipients)
   }
   
   static func getRemote(path: String, parameters: [String: Any]? = nil) -> BackendRequest {
