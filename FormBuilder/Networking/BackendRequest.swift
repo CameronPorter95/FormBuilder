@@ -51,7 +51,8 @@ struct BackendRequest: TargetType {
   }
   
   var baseURL: URL {
-    return URL(string: "https://secure.staging.orbitremit.io/api/v2/")!
+    //return URL(string: "https://secure.staging.orbitremit.io/api/v2/")!
+    return URL(string: "http://localhost:8080/")!
   }
   
   var sampleData: Data {

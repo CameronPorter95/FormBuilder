@@ -16,7 +16,7 @@ class RecipientCollection: MoyaCollection<Recipient> {
        cacheFilter: @escaping (Recipient) -> Bool = { _ in return true }, cacheSort: ((Recipient, Recipient) -> Bool)? = nil) {
     self.provider = provider
     super.init {
-      provider.futureArray(.getRecipients())
+      provider.futureArray(.getRecipients(), isJsonApi: true)
     }
     self.cache = cache ?? []
     self.cacheFilter = cacheFilter

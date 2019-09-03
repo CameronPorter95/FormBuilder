@@ -1,0 +1,126 @@
+{
+  "data": [{
+      "type": "recipients",
+      "id": "1",
+      "attributes": {
+        "type": "recipients",
+        "name": "Cameron Porter",
+        "reason": "I'm making a property payment",
+        "product_type": "bank_account"
+      },
+      "relationships": {
+        "details": {
+          "data": {
+            "id": "1",
+            "type": "bank_accounts"
+          }
+        },
+        "currency": {
+          "data": {
+            "id": "1",
+            "type": "currencies"
+          }
+        }
+      }
+    },
+    {
+      "type": "recipients",
+      "id": "2",
+      "attributes": {
+        "type": "recipients",
+        "name": "Mike Simpson",
+        "reason": "I'm supporting family or friends",
+        "product_type": "person"
+      },
+      "relationships": {
+        "details": {
+          "data": {
+            "id": "2",
+            "type": "persons"
+          }
+        },
+        "currency": {
+          "data": {
+            "id": "2",
+            "type": "currencies"
+          }
+        }
+      }
+    },
+    {
+      "type": "recipients",
+      "id": "3",
+      "attributes": {
+        "type": "recipients",
+        "name": "Anthony Chui",
+        "reason": "I'm making a property payment",
+        "product_type": "bank_account"
+      },
+      "relationships": {
+        "details": {
+          "data": {
+            "id": "3",
+            "type": "bank_accounts"
+          }
+        },
+        "currency": {
+          "data": {
+            "id": "1",
+            "type": "currencies"
+          }
+
+        }
+      }
+    }
+  ],
+  "included": [{
+      "type": "bank_account",
+      "id": "1",
+      "attributes": {
+        "account_number": "12-3466-7891234-567",
+        "email_address": "cameron.porter@orbitremit.com"
+      }
+    },
+    {
+      "type": "persons",
+      "id": "2",
+      "attributes": {
+        "account_number": "09-8765-4321234-876",
+        "email_address": "mike.simpson@orbitremit.com",
+        "first_name": "Mike",
+        "last_name": "Simpson",
+        "gender": "Male",
+        "date_of_birth": "27/04/1993",
+        "contact_phone": "+64277271234",
+        "address1": "Somewhere with flamingo wallpaper",
+        "address2": "Island Bay",
+        "city": "Wellington",
+        "postcode": "1234"
+      }
+    },
+    {
+      "type": "bank_account",
+      "id": "3",
+      "attributes": {
+        "account_number": "98-2376-5479384-934",
+        "email_address": "anthony.chui@orbitrmeit.com"
+      }
+    },
+    {
+      "type": "currencies",
+      "id": "1",
+      "attributes": {
+        "name": "New Zealand Dollar",
+        "currency_code": "NZD"
+      }
+    },
+    {
+      "type": "currencies",
+      "id": "2",
+      "attributes": {
+        "name": "Autralian Dollar",
+        "currency_code": "AUD"
+      }
+    }
+  ]
+}
