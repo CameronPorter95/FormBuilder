@@ -10,10 +10,10 @@ import Foundation
 import SwiftyJSON
 
 class JSONSchema<T: SchemaBranchDefinition>: JsonStructure {
-  ///The root branch of this JSONSchema
-  var root: SchemaBranchDefinition!
   ///The raw unmapped json
   var json: JSON?
+  ///The root branch of this JSONSchema
+  var root: SchemaBranchDefinition!
   
   required init(_ json: JSON) {
     self.json = json

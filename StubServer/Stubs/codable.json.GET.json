@@ -1,8 +1,0 @@
-{
-  "status": "success",
-  "code": 200,
-  "data": {
-    "name": "Bob",
-    "id": 1,
-  }
-}

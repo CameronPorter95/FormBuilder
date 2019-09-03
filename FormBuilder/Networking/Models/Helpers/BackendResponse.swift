@@ -29,28 +29,6 @@ struct BackendArrayResponse<T>: Codable where T: Codable {
   }
 }
 
-struct BackendJSONAPIResponse<T>: Codable where T: Codable {
-  var type: String?
-  var id: String?
-  var links: [String: String]?
-  var attributes: T?
-  
-  init(attributes: T) {
-    self.attributes = attributes
-  }
-}
-
-struct BackendJSONAPIArrayResponse<T>: Codable where T: Codable {
-  var type: String?
-  var id: String?
-  var links: [String: String]?
-  var attributes: [T]?
-  
-  init(attributes: [T]) {
-    self.attributes = attributes
-  }
-}
-
 struct Pagination: Codable {
   var total: Int?
   var perPage: Int?

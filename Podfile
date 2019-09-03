@@ -14,6 +14,7 @@ def shared_pods
 #  pod 'SwiftPath'
   pod 'SMJJSONPath'
   pod 'SwiftyJSON'
+  pod 'Japx'
 
 end
 

@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import BrightFutures
 import Result
+import Japx
 
 typealias MoyaFuture<T> = Future<T, MoyaError>
 typealias MoyaResult<T> = Result<T, MoyaError>
@@ -38,5 +39,13 @@ extension Response {
     } catch {
       return Result(error: MoyaError.underlying(error, nil))
     }
+  }
+  
+  ///Flattens a JSONAPI response so it can be decoded normally
+  var flattened: Response {
+    guard let flattenedData = try? Japx.Decoder.data(with: self.data) else {
+      return self
+    }
+    return Response(statusCode: statusCode, data: flattenedData, request: request, response: response)
   }
 }

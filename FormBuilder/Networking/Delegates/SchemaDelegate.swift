@@ -10,14 +10,14 @@ import Foundation
 import Moya
 
 protocol SchemaDelegate: class {
-  //Get JSON
+  //Get Schema
   func getSchemaDidBegin()
   func getSchemaDidSucceed(schema: JSONSchema<SchemaRoot>)
   func getSchemaDidFail(error: MoyaError)
 }
 
 extension SchemaDelegate {
-  //Get JSON
+  //Get Schema
   func getSchemaDidBegin() { }
   func getSchemaDidSucceed(schema: JSONSchema<SchemaRoot>) { }
   func getSchemaDidFail(error: MoyaError) { }
